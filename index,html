@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIAKAD - Portofolio Perjalanan Hidup</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://jsdelivr.net" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        /* TEMA BARU: Latar belakang Cream Tua */
+        body {
+            background-color: #d7ccc8; /* Cream Tua / Warm Taupe */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #4e342e; /* Teks Cokelat Gelap agar Kontras */
+        }
+
+        /* Header Atas Menyesuaikan Tema Cokelat/Cream Elegan */
+        .siakad-header {
+            background: linear-gradient(135deg, #5d4037 0%, #4e342e 100%);
+            color: white;
+            padding: 30px 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .header-logo {
+            width: 75px; height: 75px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; color: #5d4037;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .header-title {
+            font-size: 1.1rem; font-weight: 600; letter-spacing: 0.5px; line-height: 1.4;
+        }
+
+        /* Tombol Menu Atas */
+        .btn-header-action {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none; color: white; padding: 12px;
+            border-radius: 10px; font-size: 0.9rem;
+            backdrop-filter: blur(5px); transition: all 0.2s;
+            width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
+        .btn-header-action:hover {
+            background-color: rgba(255, 255, 255, 0.2); color: white;
+        }
+
+        /* TEMA BARU: Kotak Modul Putih Bersih */
+        .section-title {
+            font-size: 1.4rem; font-weight: 700; color: #3e2723; margin: 25px 0 15px 0;
+        }
+        .modul-card {
+            background: #ffffff; /* Putih Bersih */
+            border: none; border-radius: 15px;
+            padding: 25px 20px; text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer; text-decoration: none; display: block; color: inherit;
+        }
+        .modul-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            color: inherit;
+        }
+        .modul-icon {
+            font-size: 2.5rem; margin-bottom: 12px;
+        }
+        .modul-name {
+            font-size: 1.05rem; font-weight: 600; color: #4e342e;
+        }
+
+        /* Desain Jendela Popup / Modal */
+        .modal-content { border-radius: 20px; border: none; background-color: #fdfbfa; }
+        .modal-header { background-color: #5d4037; color: white; border-top-left-radius: 20px; border-top-right-radius: 20px; }
+        .btn-close-white { filter: invert(1) grayscale(100%) brightness(200%); }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid p-0">
+    <!-- ==================== HEADER UTAMA ==================== -->
+    <div class="siakad-header text-center">
+        <div class="d-flex justify-content-center mb-3">
+            <div class="header-logo">
+                <i class="fa-solid fa-user-astronaut"></i>
+            </div>
+        </div>
+        <div class="header-title mb-4 px-2">
+            Sistem Informasi Pengalaman Hidup<br>
+            <span class="fw-bold text-warning">PORTOFOLIO PERJALANAN HIDUP SAYA</span>
+        </div>
+
+        <div class="row g-2 px-3 justify-content-center" style="max-width: 400px; margin: 0 auto;">
+            <div class="col-6">
+                <button class="btn-header-action" data-bs-toggle="modal" data-bs-target="#modalUtamaProfil">
+                    <i class="fa-solid fa-user-circle mb-1 fs-5"></i>
+                    Halaman Profil
+                </button>
+            </div>
+            <div class="col-6">
+                <button class="btn-header-action" onclick="alert('Terima kasih telah berkunjung ke SIAKAD hidup saya!')">
+                    <i class="fa-solid fa-right-from-bracket mb-1 fs-5"></i>
+                    Keluar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== KONTEN DAFTAR MODUL ==================== -->
+    <div class="container px-4 pb-5">
+        <h2 class="section-title">Daftar Modul</h2>
+
+        <div class="row g-3">
+            <!-- Modul 1: Biodata Diri Saya -->
+            <div class="col-12">
+                <div class="modul-card" data-bs-toggle="modal" data-bs-target="#modalBiodata">
+                    <i class="fa-solid fa-address-card modul-icon" style="color: #8d6e63;"></i>
+                    <div class="modul-name">Biodata Diri Saya</div>
+                </div>
+            </div>
+
+            <!-- Modul 2: Keseharian Saya -->
+            <div class="col-12">
+                <div class="modul-card" data-bs-toggle="modal" data-bs-target="#modalKeseharian">
+                    <i class="fa-solid fa-calendar-day modul-icon" style="color: #a1887f;"></i>
+                    <div class="modul-name">Keseharian Saya</div>
+                </div>
+            </div>
+
+            <!-- Modul 3: Hobi -->
+            <div class="col-12">
+                <div class="modul-card" data-bs-toggle="modal" data-bs-target="#modalHobi">
+                    <i class="fa-solid fa-gamepad modul-icon" style="color: #bcaaa4;"></i>
+                    <div class="modul-name">Hobi & Kegemaran</div>
+                </div>
+            </div>
+
+            <!-- Modul 4: Cita-Cita -->
+            <div class="col-12">
+                <div class="modul-card" data-bs-toggle="modal" data-bs-target="#modalCitaCita">
+                    <i class="fa-solid fa-rocket modul-icon" style="color: #d84315;"></i>
+                    <div class="modul-name">Cita - Cita & Target</div>
+                </div>
+            </div>
+
+            <!-- Modul 5: Motivasi Saya -->
+            <div class="col-12">
+                <div class="modul-card" data-bs-toggle="modal" data-bs-target="#modalMotivasi">
+                    <i class="fa-solid fa-lightbulb modul-icon" style="color: #ffb300;"></i>
+                    <div class="modul-name">Motivasi Saya</div>
+                </div>
+            </div>
+
+            <!-- Modul 6: Kendala Membuat Web Ini -->
+            <div class="col-12">
+                <div class="modul-card" data-bs-toggle="modal" data-bs-target="#modalKendala">
+                    <i class="fa-solid fa-triangle-exclamation modul-icon" style="color: #c62828;"></i>
+                    <div class="modul-name">Kendala Pembuatan Web</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== POPUP MODAL: HALAMAN PROFIL UTAMA ==================== -->
+<div class="modal fade" id="modalUtamaProfil" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold">Profil Akun Kehidupan</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center p-4">
+                <i class="fa-solid fa-circle-user text-dark display-4 mb-3"></i>
+                <h4 class="fw-bold">Mahasiswa Kehidupan</h4>
+                <p class="text-muted">NIM: 2026.LIFE.USER</p>
+                <div class="alert alert-secondary small mb-0" style="background-color: #efebe9; color: #4e342e; border: none;">Status Sistem: Aktif Bertumbuh Di Universitas Semesta</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== POPUP MODAL: BIODATA DIRI ==================== -->
+<div class="modal fade" id="modalBiodata" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold"><i class="fa-solid fa-id-card me-2"></i>Biodata Diri</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <table class="table table-striped table-hover small m-0">
+                    <tr><td><strong>Nama Lengkap</strong></td><td>Nama Kamu</td></tr>
+                    <tr><td><strong>Asal Kampus</strong></td><td>Universitas Nahdlatul Ulama Al Ghazali Cilacap</td></tr>
+                    <tr><td><strong>Status Hidup</strong></td><td><span class="badge bg-success">Mahasiswa Aktif</span></td></tr>
+                    <tr><td><strong>Karakter Utama</strong></td><td>Tekun, Senang Belajar, Pantang Menyerah</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== POPUP MODAL: KESEHARIAN SAYA ==================== -->
+<div class="modal fade" id="modalKeseharian" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold"><i class="fa-solid fa-clock me-2"></i>Aktivitas Keseharian</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
